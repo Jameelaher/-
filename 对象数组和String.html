@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--
+        	作者：offline
+        	时间：2019-08-14
+        	描述：
+        	属性（properties）描述对象的属性用“.” 把属性与对象连接起来
+                        方法（methods）一般是面向对象语言中用于描述对象的行为动作，也是用”.”连接
+                        内部对象 内部对象 — JavaScript实现提供的对象
+			Array对象
+			Date对象
+			Math对象
+			String对象
+        -->
+        <script type="text/javascript">
+        	var txt = "selloW orld";
+            document.write(txt.length);
+            alert(11); 
+            document.write(txt.toUpperCase);
+            var ary = new Array(1,2,5,12,45,8,4);
+			var newAry = ary.sort(
+			function(i , j )
+			{
+				return i - j;//如果sort方法不传递任何参数，则按照字典顺序的ascii码值进行排序。
+			}
+			);
+			//sort 方法将 Array 对象进行适当的排序；在执行过程中并不会创建新的 Array 对象。 
+			//
+			//如果为 sortfunction 参数提供了一个函数，那么该函数必须返回下列值之一： 
+			//
+			//负值，如果所传递的第一个参数比第二个参数小。 
+			//零，如果两个参数相等。 
+			//正值，如果第一个参数比第二个参数大。 
+			alert(newAry); //按照数字进行排序
+			function SortDemo(){   
+				var a, l;                       // 声明变量。
+   				a = new Array("X" ,"y" ,"d", "Z", "v","m","r");
+   				l = a.sort();                   // 排序数组。
+   				//return(l);                      // 返回排序的数组。
+   				alert(l);
+   				}
+			SortDemo();
+			
+			var ary = new Array(1,2,"张三丰");
+			var str = ary.join(",");
+			alert(str); //join 方法 返回字符串值，其中包含了连接到一起的数组的所有元素，元素由指定的分隔符分隔开来。
+            
+			//			charAt 方法 charAt 方法 返回指定索引位置处的字符。
+            function charAtTest(n){   
+            	var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // 初始化变量。
+   				var s;                                  // 声名变量。
+   				s = str.charAt(n - 1);                  // 从索引为n – 1的位置处
+                                           // 获取正确的字符。
+   				alert(s);                              //返回字符。
+   				}
+            charAtTest(3);//charAt 方法返回一个字符值，该字符位于指定索引位置。字符串中的第一个字符的索引为 0，第二个的索引为 1，等等。超出有效范围的索引值返回空字符串。
+			//			indexOf 方法	 返回 String 对象内第一次出现子字符串的字符位置。 
+			function IndexDemo(str2){   
+				var str1 = "BABEBIBOBUBABEBIBOBU"
+			    var s = str1.indexOf(str2);  
+			    alert(s+1);
+			}
+			IndexDemo("B");//indexOf 方法返回一个整数值，指出 String 对象内子字符串的开始位置。如果没有找到子字符串，则返回 -1。 
+			//			replace 方法  返回根据正则表达式进行文字替换后的字符串的复制。
+			//下面的示例演示了 replace 方法将第一次出现的单词 "The" 替换为单词 "A" 的用法。
+
+			function ReplaceDemo(){
+			   var r, re;                    // 声明变量。
+			   var ss = "The man hit the ball with the bat.\n";
+			   ss += "while the fielder caught the ball with the glove.";
+			   re = /The/g;             // 创建正则表达式模式。
+			   r = ss.replace(re, "A");    // 用 "A" 替换 "The"。
+			   alert(r);                   // 返回替换后的字符串。
+			}
+			ReplaceDemo();
+			//另外, replace 方法也可以替换模式中的子表达式。 下面的范例演示了交换字符串中的每一对单词： 
+
+			function ReplaceDemo2(){
+			   var r, re;                      // 声明变量。
+			   var ss = "The rain in Spain falls mainly in the plain.";
+			   re = /(\S+)(\s+)(\S+)/g;        // 创建正则表达式模式。
+			   r = ss.replace(re, "$3$2$1");   // 交换每一对单词。
+			   alert(r);                      // 返回结果字符串。
+			}
+			ReplaceDemo2();
+			//下面的示例（在 JScript 5.5 及更新版本中执行）执行的是从华氏到摄氏的转换，它演示了使用函数作为 replaceText。要想知道该函数是如何工作的，传递一个包含数值的字符串，数值后要紧跟 "F" （例如 "Water boils at 212"）。
+
+			function f2c(s) {
+			  var test = /(\d+(\.\d*)?)F\b/g;    // 初始化模式。
+			  return(s.replace
+			    (test,
+			      function($0,$1,$2) { 
+			        return((($1-32) * 5/9) + "C");
+			      }
+			    )
+			  );
+			}
+			document.write(f2c("Water freezes at 32F and boils at 212F."));
+
+			//			split 方法 
+			var str = "张三丰0杨玉环1李斯的&杨广";
+			var ary = str.split(/[0-9]|&/);//split 方法 将一个字符串分割为子字符串，然后将结果作为字符串数组返回。
+			for( var i = 0 ; i <ary.length ; i++  ){
+					alert(ary[i]);
+			}
+			//			substr 方法 | substring 方法  返回一个从指定位置开始的指定长度的子字符串 返回位于 String 对象中指定位置的子字符串。 
+			//如果 length 为 0 或负数，将返回一个空字符串。如果没有指定该参数，则子字符串将延续到 stringvar 的最后。
+			function SubstrDemo(){  
+				var s, ss;                // 声明变量。
+   				var s = "The rain in Spain falls mainly in the plain.";
+   				ss = s.substr(12, 5);  // 获取子字符串。   
+   				alert(ss);// 返回 "Spain"。
+			}
+			SubstrDemo();
+			//substring 方法将返回一个包含从 start 到最后（不包含 end ）的子字符串的字符串。
+
+			//substring 方法使用 start 和 end 两者中的较小值作为子字符串的起始点。例如， strvar.substring(0, 3) 和 strvar.substring(3, 0) 将返回相同的子字符串。 
+			//			
+			//如果 start 或 end 为 NaN 或者负数，那么将其替换为0。 
+            //			
+            //子字符串的长度等于 start 和 end 之差的绝对值。例如，在 strvar.substring(0, 3) 和 strvar.substring(3, 0) 返回的子字符串的的长度是 3。 
+
+			function SubstringDemo(){   
+				var ss;                         // 声明变量。
+				var s = "The rain in Spain falls mainly in the plain..";
+				ss = s.substring(12, 17);   // 取子字符串。
+				alert(ss);                     // 返回子字符串
+			}
+			SubstringDemo();
+			
+			//toLowerCase 方法 | toUpperCase 方法 返回一个字符串，该字符串中的所有字母都被转化为大写字母。toUpperCase 方法对非字母字符不会产生影响。
+		    var strVariable = "This is a STRING object";
+			strVariable = strVariable.toUpperCase( );
+			alert(strVariable);
+			
+        </script>
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>

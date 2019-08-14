@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<script type="text/javascript">
+			/*
+			 * JS六种数据类型
+			 * 基本数据类型
+			 * String字符串
+			 * Number 数值
+			 * Boolean 布尔值
+			 * Null 空值
+			 * Undefined 未定义
+			 * 
+			 * Object 对象 引用数据类型
+			 * 
+			 * 强制类型转化
+			 * 转换为String
+			 * 1.toString方法 
+			 * 2.String()函数
+			 * 转换为Number
+			 * Number函数
+			 * 非数字的 转换为NaN
+			 * paresInt(),parseFloat()函数
+			 * 转化为Boolean
+			 * Boolean()函数
+			 */
+		    var a = 123;
+		    console.log(typeof a);
+		    var b = a.toString();
+		    console.log(a);
+		    console.log(typeof b);
+		    b = 123;
+		    c = String(b);
+		    console.log(typeof c);
+		    var d = "123abcd";
+		    d = Number(d);
+		    console.log(d);
+		    console.log(typeof d);
+		    var e = "";
+		    e = Number(e);
+		    console.log(e);
+		    var f = function(){
+		    	
+		    };
+		    console.log(typeof f);
+		    var g = 1.1;
+		    var h = "1";
+		    console.log(g+h);//数值域字符串相加 转换为字符串
+		    g = parseInt(g);
+		    h = parseFloat(h);
+		    console.log(g);
+		    console.log(h);
+		    console.log(g+h);
+		    var i,j;
+		    i = true;
+		    j = "aaaa";
+		    console.log(i+j);//布尔值与字符串相加 转换为字符串
+		    i = 1;
+		    j = false;
+		    console.log(i+j);//数值与布尔值相加 将布尔值强制转换为数值
+		    var k = 0;
+		    k = Boolean(k);
+		    console.log(k);
+		</script>
+		<title></title>
+		
+	</head>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript">
+			
+			//getDate 方法：得到1-31之间的一个数字 返回 Date 对象中用本地时间表示的一个月中的日期值。
+			//getFullYear 方法：得到年
+			//getMonth 方法：得到月 ，0-11
+			//getTime 方法：得到从1970/01/01标准时间到该时间之间经历的毫秒数
+			//对应有一组setXXXX方法
+			//Date.parse(dateVal) ： dateVal --》 日期的字符串
+			//将一个字符串转换成Date对象
+			//dateObj = new Date(); 
+			//dateObj = new Date(dateVal);
+			//dateObj = new Date(year, month, date[, hours[, minutes[, seconds[,ms]]]]);
+			function DateDemo(){ 
+			var d, s = "Today's date is: ";           // 声明变量。
+		    d = new Date();                          // 创建 Date 对象。
+		    alert(d);
+		    s += (d.getMonth() + 1) + "/";            // 获取月份。
+		    s += d.getDate() + "/";                   // 获取日。
+		    s += d.getFullYear();                         // 获取年份。
+		    alert(d.getTime()/1000/60/60/24/365);
+		    alert(s);                                // 返回日期。
+		    }
+			DateDemo();
+			function GetTimeTest(testdate){
+				var s, t;                    // 声明变量。
+			    var MinMilli = 1000 * 60;       // 初始化变量。  
+			    var HrMilli = MinMilli * 60;
+			    var DyMilli = HrMilli * 24;   
+			    t = Date.parse(testdate);       // 解析 testdate。
+			    s = "There are "                // 创建返回的字符串。
+		    	s += Math.round(Math.abs(t / DyMilli)) + " days "
+		    	s += "between " + testdate + " and 1/1/70";
+	   	    	alert(s);                      // 返回结果。 
+	   	    }
+			GetTimeTest("November 1, 1997 10:15 AM");
+			
+			//ceil 方法：大于等于其数字参数的最小整数。 
+			//3.4 ==》4
+			//floor 方法：小于等于其数值参数的最大整数。 
+			//3.4 ==》3		
+			//pow 方法：
+			//random 方法：[0-1)的小数
+			//round 方法：四舍五入到整数
+			//sqrt 方法：返回数字的平方根。
+			function math(){
+				var a = 4.6;
+				var b = 2;
+				alert(Math.ceil(a));
+				alert(Math.floor(a));
+				alert(Math.pow(2,2));
+				alert(Math.round(Math.random()*1000));
+				alert(Math.sqrt(b));
+			}
+			math();
+
+		</script>
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--
+		重要属性：
+		action ： 指定表单的处理程序
+		method ： 指定表单的处理方式
+		get / post
+		get:提交的表单信息都在地址栏上参数名=参数值&参数名=参数值的方式传递的
+			可以通过地址栏去改变提交的信息，相对不太安全。
+			get提交的信息大小受浏览器的限制，一般是2k-8k之间。
+		post:提交的信息封装在请求体里
+			不可以通过地址栏去改变提交的信息，所以，相对比较安全
+			post一般提交的信息不受限制
+		enctype：提交表单用默认值
+		默认值为：application/x-www-form-urlencoded.
+		文件上传：multipart/form-data
+		text/plain	空格转换为"+"符号，但没有特殊字符 编码
+		
+		4. 文本域
+		<input type=text|password
+		value 得到文本值
+		readonly 是否为只读
+		readonly="readonly" 和 disabled="disabled" 的区别？
+		disabled是服务器端不可用
+		插播：
+		eval函数
+		范例：
+		-->
+		<script type="text/javascript">
+			var str = "var i = 1+2*8-5;";
+			eval(str);
+			alert(i); // ==> 12
+			var str = "1+2*8-5;";
+			var i = eval(str); //i的值是12
+			document.write(i);
+			
+			function cb(){
+				var cb = document.getElementById("cb").value;
+				alert(cb);
+			}
+			function fx(){
+				alert(document.getElementById("fx").length);
+				for(var i = 0;i<document.getElementById("fx").length;i++){
+					//alert(document.getElementById("fx").options[i].value);
+					if(document.getElementById("fx").options[i].selected==true){
+						alert(document.getElementById("fx").options[i].text);
+					}
+					
+				}
+			}
+			
+		</script>
+		
+		
+		<title></title>
+	</head>
+	<body>
+		<input type="checkbox" id="cb" value="复选框" onclick="cb()" checked="true" name="AAA">checkbox
+        <select id="fx" multiple="multiple">
+        	<option value="1">AAA</option>
+        	<option value="2">BBB</option>
+ 			<option value="3">CCC</option>
+        </select>
+        <input type="button" onclick="fx()" value="下拉"/>
+	</body>
+</html>
